@@ -1,0 +1,16 @@
+*AND gate
+.include "D:\mosmodel.txt"
+Vdd 1 0 1.8
+Va 2 0 PULSE 0 1.8 0 1n 1n 10u 20u
+Vb 3 0 PULSE 0 1.8 5u 1n 1n 20u 40u
+VI0 6 0 0
+C1 5 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS L = 0.18u W = 0.72u
+M1 5 2 3 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 5 4 6 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 4 2 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 4 2 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.TRAN 1u 80u
+.PROBE
+.END

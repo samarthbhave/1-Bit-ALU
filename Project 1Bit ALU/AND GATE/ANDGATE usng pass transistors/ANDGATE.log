@@ -1,0 +1,29 @@
+Circuit: *AND gate
+
+Instance "m3": Length shorter than recommended for a level 1 MOSFET.
+Instance "m3": Width narrower than recommended for a level 1 MOSFET.
+Instance "m4": Length shorter than recommended for a level 1 MOSFET.
+Instance "m4": Width narrower than recommended for a level 1 MOSFET.
+Instance "m2": Length shorter than recommended for a level 1 MOSFET.
+Instance "m2": Width narrower than recommended for a level 1 MOSFET.
+Instance "m1": Length shorter than recommended for a level 1 MOSFET.
+Instance "m1": Width narrower than recommended for a level 1 MOSFET.
+Direct Newton iteration for .op point succeeded.
+
+Date: Fri Apr 23 21:53:56 2021
+Total elapsed time: 0.186 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3921
+traniter = 3914
+tranpoints = 1768
+accept = 1593
+rejected = 175
+matrix size = 10
+fillins = 0
+solver = Normal
+Matrix Compiler1: 364 bytes object code size  0.2/0.1/[0.0]
+Matrix Compiler2: 762 bytes object code size  0.1/0.2/[0.1]
+

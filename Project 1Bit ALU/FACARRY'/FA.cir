@@ -1,0 +1,43 @@
+*Full Adder
+.include "D:\Sem VI\VLSI\Project 1Bit ALU\mosmodel.txt"
+Vdd 1 0 1.8
+Va 4 0 PULSE 0 1.8 0 1n 1n 10u 20u
+Vb 5 0 PULSE 0 1.8 0 1n 1n 20u 40u
+Vcin 6 0 PULSE 0 1.8 0 1n 1n 40u 80u
+Cl 10 0 100f
+C2 18 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS L = 0.18u W = 0.72u
+M1 9 4 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 9 5 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 2 6 9 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 2 4 7 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 7 5 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 2 4 3 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M7 2 5 3 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M8 3 6 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M9 8 4 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M10 2 5 8 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+
+M11 10 2 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M12 10 2 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+
+M13 11 4 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M14 11 5 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M15 11 6 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M16 14 2 11 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M17 12 4 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M18 13 5 12 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M19 14 6 13 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M20 14 6 15 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M21 15 5 16 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M22 16 4 17 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M23 14 2 17 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M24 17 4 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M25 17 5 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M26 17 6 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M27 18 14 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M28 18 14 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.TRAN 1u 80u
+.PROBE
+.END

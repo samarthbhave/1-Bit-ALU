@@ -1,0 +1,104 @@
+*1bit ALU using different design styles
+.include "D:\mosmodel.txt"
+.global Vdd
+.subckt FA A B Cin CA SU
+Cl CA 0 100f
+C2 SU 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS L = 0.18u W = 0.72u
+M1 9 A 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 9 B 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 2 6 9 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 2 A 7 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 7 B 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 2 A 3 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M7 2 B 3 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M8 3 6 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M9 8 A 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M10 2 B 8 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M11 CA 2 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M12 CA 2 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+
+M13 11 A 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M14 11 B 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M15 11 Cin 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M16 14 2 11 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M17 12 A 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M18 13 B 12 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M19 14 Cin 13 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M20 14 Cin 15 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M21 15 B 16 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M22 16 A 17 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M23 14 2 17 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M24 17 A 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M25 17 B 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M26 17 Cin 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M27 SU 14 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M28 SU 14 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.end
+.subckt ANDGATETGL A B O1
+C1 O1 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS L = 0.18u W = 0.72u
+M1 O1 6 B 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 O1 A B 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 O1 A 5 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 O1 6 5 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 6 A 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 6 A 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.end
+.subckt NORGATE A B O2
+C1 O2 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS L = 0.18u W = 0.72u
+M1 O2 A 6 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 O2 4 5 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 5 B 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 5 B 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 4 A 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 4 A 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.end
+.subckt XORGATETGL A B O3
+ Cl O3 0 100f
+.model mn NMOS L=0.18u W=0.36u
+.model mp PMOS L=0.18u W=0.72u
+ M1 3 A 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+ M2 3 A 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+ M3 5 B 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+ M4 5 B 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+ M5 O3 A B3 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+ M6 O3 3 B3 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+ M7 O3 3 5 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+ M8 O3 A 5 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.end
+.subckt 4MUX A1 B1 C1 D1 S0 S1 O4
+ Cl O4 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS l = 0.18u W = 0.72u
+M1 9 S1 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 9 S1 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 10 S0 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 10 S0 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 11 9 A1 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 11 10 O4 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M7 12 9 B1 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M8 12 S0 O4 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M9 13 S1 C1 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M10 13 10 O4 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M11 14 S1 D1 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M12 14 S0 O4 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.END
+x1 A B SU FA
+x2 A B O1 ANDGATETGL
+x3 A B O2 NORGATE
+x4 A B O3 XORGATETGL
+x5 SU O1 O2 O3 S0 S1 O4 4MUX
+Vdd Vdd 0 1.8
+Vs0 S0 0 Pulse 0 1.8 0 1n 1n 10u 20u
+Vs1 S1 0 Pulse 0 1.8 5u 1n 1n 10u 20u
+Va A 0 Pulse 0 1.8 0 1n 1n 10u 20u
+Vb B 0 Pulse 0 1.8 5u 1n 1n 20u 40u
+Vcin Cin 0 Pulse 0 1.8 10u 1n 1n 40u 80u
+.TRAN 1n 80u
+.PROBE
+.END

@@ -1,0 +1,17 @@
+*XOR gate
+.include "D:\mosmodel.txt"
+Vdd 1 0 1.8
+Va 2 0 PULSE 0 1.8 0 1n 1n 10u 20u
+Vb 3 0 PULSE 0 1.8 0 1n 1n 20u 40u
+C1 6 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS L = 0.18u W = 0.72u
+M1 6 2 5 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 6 4 3 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 4 2 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 4 2 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 5 3 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 5 3 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.TRAN 1u 50u
+.PROBE
+.END

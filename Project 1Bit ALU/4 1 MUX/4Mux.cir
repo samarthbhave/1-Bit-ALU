@@ -1,0 +1,27 @@
+*4:1 MUX
+.include "D:\mosmodel.txt"
+Vdd 1 0 1.8
+Vs0 7 0 PULSE 0 1.8 0 1n 1n 10u 20u
+Vs1 6 0 PULSE 0 1.8 5u 1n 1n 20u 40u
+VI0 2 0 0
+VI1 3 0 1.8
+Vi2 4 0 1.8
+Vi3 5 0 0
+Cl 8 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS l = 0.18u W = 0.72u
+M1 9 6 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 9 6 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 10 7 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 10 7 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 11 9 2 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 11 10 8 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M7 12 9 3 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M8 12 7 8 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M9 13 6 4 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M10 13 10 8 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M11 14 6 5 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M12 14 7 8 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.TRAN 1u 80u
+.PROBE
+.END

@@ -1,0 +1,25 @@
+*3 i/p NAND gate
+.include "D:\mosmodel.txt"
+Vdd 1 0 1.8
+Va 2 0 PULSE 0 1.8 0 1n 1n 10u 20u
+Vb 4 0 PULSE 0 1.8 0 1n 1n 20u 40u
+Vc 6 0 PULSE 0 1.8 0 1n 1n 40u 80u
+V1 8 0 1.8
+C1 11 0 100f
+.model mn NMOS L = 0.18u W = 0.36u
+.model mp PMOS L = 0.18u W = 0.72u
+M1 3 2 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M2 3 2 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M3 5 4 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M4 5 4 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M5 7 6 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M6 7 6 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M7 9 4 7 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M8 9 5 8 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M9 10 2 9 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M10 10 3 8 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M11 11 10 1 1 mp AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+M12 11 10 0 0 mn AS = 0.648p AD = 0.648p PS = 3.24u PD = 3.24u
+.TRAN 1u 80u
+.PROBE
+.END
